@@ -35,3 +35,15 @@ class Devis(models.Model):
 
     def __str__(self):
         return f'{self.numero}'
+
+
+class Facturation(models.Model):
+    qte = models.fields.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+    prix = models.fields.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+    total = models.fields.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+    apply_tax = models.fields.BooleanField(default=True, blank=True)
+    tax = models.fields.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.total}'
+

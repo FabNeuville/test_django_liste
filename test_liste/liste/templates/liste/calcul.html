@@ -1,0 +1,17 @@
+{% extends 'liste/base.html' %}
+
+{% block content %}
+
+<h3>Calcul</h3>
+
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Créer</button>
+</form>
+
+{{ form.media }}
+
+{% endblock %}

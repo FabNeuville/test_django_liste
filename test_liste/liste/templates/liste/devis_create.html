@@ -12,4 +12,23 @@
     <button type="submit">Créer</button>
 </form>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        document.querySelector("#id_artiste").addEventListener("change", function() {
+            var artisteId = this.value;
+            fetch(`/get-artiste/${artisteId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector("#id_titre_spectacle").value = data.titre_spectacle;
+                    document.querySelector("#id_nb_artiste").value = data.nb_artiste;
+                    document.querySelector("#id_nb_technicien").value = data.nb_technicien;
+                    document.querySelector("#id_duree_spectacle").value = data.duree_spectacle;
+                    document.querySelector("#id_cachet_ttc").value = data.cachet_ttc;
+                });
+        });
+    });
+
+</script>
+
 {% endblock %}
